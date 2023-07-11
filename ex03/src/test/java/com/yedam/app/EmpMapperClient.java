@@ -1,6 +1,7 @@
 package com.yedam.app;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -35,6 +36,52 @@ public class EmpMapperClient {
 		
 		EmpVO findVO = empMapper.selectEmpInfo(empVO);
 		assertEquals(findVO.getLastName(), "King");
+	}
+	
+	@Test
+	public void insertEmpInfo() {
+		// 등록
+		EmpVO empVO = new EmpVO();
+		empVO.setLastName("Kim");
+		empVO.setFirstName("Chicken");
+		empVO.setEmail("ckKim@google.com");
+		empVO.setJobId("IT_PROG");
+		empVO.setSalary(5000);
+		
+		empMapper.insertEmpInfo(empVO);
+		assertNotEquals(empVO.getEmployeeId(), 0);
+	}
+	
+	@Test
+	public void updateEmpSal() {
+		// 급여 갱신
+		EmpVO empVO = new EmpVO();
+		empVO.setEmployeeId(1001);
+		int result = empMapper.updateEmpSal(empVO, 10);
+		assertEquals(result, 1);
+	}
+	
+	@Test
+	public void updateEmpInfo() {
+		// 사원 정보 수정
+		EmpVO empVO = new EmpVO();
+		empVO.setEmployeeId(1001);
+		
+		EmpVO findVO  = empMapper.selectEmpInfo(empVO);
+		System.out.println(findVO);
+		
+		empVO.setEmail("chicKing@naver.com");
+		empVO.setSalary(6200);
+		
+		int result = empMapper.updateEmpInfo(empVO);
+		assertEquals(result, 1);
+	}
+	
+	@Test
+	public void deleteEmpInfo() {
+		// 삭제
+		int result = empMapper.deleteEmpInfo(1001);
+		assertEquals(result, 1);
 	}
 	
 }

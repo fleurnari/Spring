@@ -17,7 +17,7 @@
 			   manager_id,
 			   department_id
 		FROM employees
-		ORDER BY employee_id
+		ORDER BY employee_id DESC
 	</select>
 	<!-- 단건 조회 -->
 	<select id="selectEmpInfo" resultType="EmpVO">

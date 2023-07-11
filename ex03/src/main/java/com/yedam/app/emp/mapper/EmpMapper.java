@@ -17,7 +17,7 @@ public interface EmpMapper {
 	public int insertEmpInfo(EmpVO empVO);
 	
 	// 수정 - 급여를 정해진 비율로 인상
-	public int updateEmpSal(@Param("empId") EmpVO empVO, @Param("raise") int raise);
+	public int updateEmpSal(@Param("emp") EmpVO empVO, @Param("raise") int raise);
 	
 	// 수정 - 사원 정보 수정
 	public int updateEmpInfo(EmpVO empVO);
