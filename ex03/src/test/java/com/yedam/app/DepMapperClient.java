@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yedam.app.dep.mapper.DepMapper;
-import com.yedam.app.dep.servicer.DepVO;
+import com.yedam.app.dep.service.DepVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/database-context.xml")

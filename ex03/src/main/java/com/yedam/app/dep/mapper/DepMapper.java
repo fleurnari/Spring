@@ -2,7 +2,7 @@ package com.yedam.app.dep.mapper;
 
 import java.util.List;
 
-import com.yedam.app.dep.servicer.DepVO;
+import com.yedam.app.dep.service.DepVO;
 
 public interface DepMapper {
 	

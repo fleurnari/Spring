@@ -1,4 +1,4 @@
-package com.yedam.app.dep.servicer;
+package com.yedam.app.dep.service;
 
 import lombok.Data;
 

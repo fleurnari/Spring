@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.yedam.app.dep.servicer.DepService;
-import com.yedam.app.dep.servicer.DepVO;
+import com.yedam.app.dep.service.DepService;
+import com.yedam.app.dep.service.DepVO;
 
 @Controller
 public class DepController {

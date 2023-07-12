@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yedam.app.dep.mapper.DepMapper;
-import com.yedam.app.dep.servicer.DepService;
-import com.yedam.app.dep.servicer.DepVO;
+import com.yedam.app.dep.service.DepService;
+import com.yedam.app.dep.service.DepVO;
 
 @Service
 public class DepServiceImpl implements DepService {
