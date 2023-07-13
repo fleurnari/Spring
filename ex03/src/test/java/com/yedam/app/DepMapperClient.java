@@ -51,5 +51,26 @@ public class DepMapperClient {
 		assertNotEquals(depVO.getDepartmentId(), 0);
 	}
 	
+	@Test
+	public void updateDepInfo() {
+		// 수정
+		DepVO depVO = new DepVO();
+		depVO.setDepartmentId(290);
+		
+		depVO.setDepartmentName("GO_HOME");
+		depVO.setLocationId(1800);
+		
+		int result = depMapper.updateDepInfo(depVO);
+		assertEquals(result, 1);
+
+	}
+	
+	@Test
+	public void deleteDepInfo() {
+		// 삭제
+		int result = depMapper.deleteDepInfo(290);
+		assertEquals(result, 1);
+	}
+	
 	
 }

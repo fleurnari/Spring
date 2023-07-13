@@ -33,16 +33,46 @@
   			(
   			 department_id
   			, department_name
+  			<if test="managerId != null and managerId > 0">
   			, manager_id
+  			</if>
+  			<if test="locationId != null and locationId > 0">
   			, location_id
+  			</if>
   			)
   			VALUES
   			(
   			 #{departmentId}
   			 , #{departmentName}
-  			 , #{managerId}
+  			 <if test="managerId != null and managerId > 0">
+	  		 , #{managerId}
+	  		 </if>
+	  		 <if test="locationId != null and locationId > 0">
   			 , #{locationId}
+  			 </if>
   			)
   	</insert>
   	
+  	<!-- 수정 -->
+  	<update id="updateDepInfo" parameterType="DepVO">
+  		UPDATE departments
+  		<set>
+  			<if test="departmentName != null and !departmentName.equals('')">
+  				department_name = #{departmentName},
+  			</if>
+  			<if test="managerId != null and managerId > 0">
+  				manager_id = #{managerId},
+  			</if>
+  			<if test="locationId != null and locationId > 0">
+  				location_id = #{locationId},
+  			</if>
+  		</set>
+  		WHERE department_id = #{departmentId}
+  	</update>
+  	
+  	<!-- 삭제 -->
+  	<delete id="deleteDepInfo" parameterType="int">
+  		DELETE FROM departments
+  		WHERE department_id = #{depId}
+  	</delete>
   </mapper>

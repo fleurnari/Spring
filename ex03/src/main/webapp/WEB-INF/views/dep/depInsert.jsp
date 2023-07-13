@@ -9,16 +9,16 @@
 <body>
 	<form action="depInsert" method="post">
 		<div>
-			<label> department_name : <input type="text" name="departmentName"> </label>
+			<label> department_name : <input type="text" name="departmentName" required="required"> </label>
 		</div>
 		<div>
 			<label> manager_id : <input type="number" name="managerId"> </label>
 		</div>
 		<div>
-			<label> location_id : <input type="number" name="LocationId"> </label>
+			<label> location_id : <input type="number" name="locationId"> </label>
 		</div>
 		<button type="submit">등록</button>
-		<button type="button">목록</button>
+		<button type="button" onclick="location.href='depList'">목록</button>
 	</form>
 </body>
 </html>

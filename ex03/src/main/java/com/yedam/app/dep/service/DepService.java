@@ -1,6 +1,7 @@
 package com.yedam.app.dep.service;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DepService {
 	
@@ -12,5 +13,11 @@ public interface DepService {
 	
 	// 등록
 	public int insertDep(DepVO depVO);
-
+	
+	// 수정
+	public Map<String, String> updateDep(DepVO depVO);
+	
+	// 삭제
+	public Map<String, String> deleteDep(int depId);
+	
 }

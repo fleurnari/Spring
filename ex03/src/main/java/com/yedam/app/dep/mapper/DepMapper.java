@@ -15,4 +15,9 @@ public interface DepMapper {
 	// 등록
 	public int insertDepInfo(DepVO depVO);
 	
+	// 수정
+	public int updateDepInfo(DepVO depVO);
+	
+	// 삭제
+	public int deleteDepInfo(int departmentId);
 }

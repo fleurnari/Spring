@@ -6,12 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전체 조회</title>
+<title>전체 부서 조회</title>
 <style type="text/css">
 	table, th, td {
 		border : 1px solid black;
 	}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
 	<button type="button" onclick="location.href='depInsert'">등록</button>
@@ -22,6 +23,7 @@
 				<th>department_name</th>
 				<th>manager_id</th>
 				<th>location_id</th>
+				<th>delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,6 +45,29 @@
 			if (msg == null || msg == '') return;
 			alert(msg);
 		}
+		
+		$('tbody > tr button[type="button"]').on('click', ajaxDeleteDep);
+		
+		function ajaxDeleteDep(e){
+			let depId = $(e.currentTarget).parent().siblings().eq(0).text();
+			
+			$.ajax({
+				url : 'depDelete',	
+				type : 'POST',
+				data : { departmentId : depId }
+			})
+			.done( data => {
+				if (data == 'Success'){
+					$(e.currentTarget).parent().parent().remove();
+				} else {
+					alert('삭제되지 않았습니다.');
+				}
+			})
+			.fail( reject => console.log(reject));
+		
+			e.stopPropagation();
+		}
+		
 	</script>
 </body>
 </html>
