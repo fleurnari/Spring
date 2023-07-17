@@ -67,6 +67,7 @@
 					)
 	</insert>
 	
+	
 	<!-- 수정 -->
 	<update id="updateBoard" parameterType="BoardVO">
 		UPDATE board
@@ -74,15 +75,20 @@
 			<if test="title != null and !title.equals('')">
 				title = #{title},
 			</if>
-			<if test="contents != null and !contents.equals('')">
+			<if test="contents != null">
 				contents = #{contents},
 			</if>
-			<if test="image != null and !image.equals('')">
+			<if test="image != null">
 				image = #{image},
 			</if>
-			<if test="updateDate != null">
-				updatedate = #{updatedate},
-			</if>
+			<choose>
+				<when test="updatedate != null">
+					updatedate = #{updatedate}
+				</when>
+				<otherwise>
+					updatedate = sysdate
+				</otherwise>
+			</choose>
 		</set>
 		WHERE bno = #{bno}
 	</update>
@@ -90,6 +96,6 @@
 	<!-- 삭제 -->
 	<delete id="deleteBoard" parameterType="int">
 		DELETE FROM board
-		WHERE bno = #{bno}
+		WHERE bno = #{boardNo}
 	</delete>
 </mapper>
